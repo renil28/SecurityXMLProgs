@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+<xs:element name="Security">
+	<xs:complexType>
+	<xs:sequence>
+		<xs:element name="SecurityAgency" maxOccurs="unbounded">
+			<xs:complexType>
+			<xs:sequence>
+				<xs:element name="AgencyName" type="xs:string"></xs:element>
+				<xs:element name="AgencyID" type="xs:integer"></xs:element>	
+			</xs:sequence>
+			</xs:complexType>
+		</xs:element>
+		
+		<xs:element name="SecurityPersonnel" maxOccurs="unbounded">
+			<xs:complexType>
+			<xs:sequence>
+				<xs:element name="Name" type="xs:string"></xs:element>
+				<xs:element name="Age" type="age"></xs:element>
+				<xs:element name="Salary" type="SecuritySal"></xs:element>
+				<xs:element name="YearsOfExperience" type="xs:integer"></xs:element>
+			</xs:sequence>
+			</xs:complexType>
+		</xs:element>
+		
+		<xs:element name="SecurityEquipment" maxOccurs="unbounded">
+			<xs:complexType>
+			<xs:sequence>
+				<xs:element name="EquipmentName" type="xs:string"></xs:element>
+				<xs:element name="EquipmentType" type="xs:string"></xs:element>
+				<xs:element name="EquipmentID" type="xs:integer"></xs:element>
+			</xs:sequence>
+			</xs:complexType>
+		</xs:element>
+		
+		<xs:element name="BaggageScanning" maxOccurs="unbounded">
+			<xs:complexType>
+			<xs:sequence>
+				<xs:element name="BaggageName" type="xs:string"></xs:element>
+				<xs:element name="BaggageID" type="xs:integer"></xs:element>
+			</xs:sequence>
+			</xs:complexType>
+		</xs:element>
+		
+		<xs:element name="SecurityScreening" maxOccurs="unbounded">
+			<xs:complexType>
+			<xs:sequence>
+				<xs:element name="GateFloorNumber" type="floor"></xs:element>
+				<xs:element name="GateID" type="xs:integer"></xs:element>
+			</xs:sequence>
+			</xs:complexType>
+		</xs:element>
+		
+		<xs:element name="CCTVCameras" maxOccurs="unbounded">
+			<xs:complexType>
+			<xs:sequence>
+				<xs:element name="CameraFloor" type="floor"></xs:element>
+				<xs:element name="CameraNumber" type="xs:integer"></xs:element>
+			</xs:sequence>
+			</xs:complexType>
+		</xs:element>
+		
+		<xs:element name="MallAdmin" maxOccurs="unbounded">
+			<xs:complexType>
+			<xs:sequence>
+				<xs:element name="AdminName" type="xs:string"></xs:element>
+				<xs:element name="AdminID" type="xs:integer"></xs:element>
+			</xs:sequence>
+			</xs:complexType>
+		</xs:element>
+	</xs:sequence>
+	</xs:complexType>
+</xs:element>
+
+
+<xs:simpleType name="SecuritySal">
+	<xs:restriction base="xs:integer">
+		<xs:minInclusive value="20000"></xs:minInclusive>
+		<xs:maxInclusive value="150000"></xs:maxInclusive>
+</xs:restriction>
+</xs:simpleType>
+<xs:simpleType name="age">
+	<xs:restriction base="xs:integer">
+		<xs:minInclusive value="20"></xs:minInclusive>
+		<xs:maxInclusive value="60"></xs:maxInclusive>
+</xs:restriction>
+</xs:simpleType>
+<xs:simpleType name="floor">
+	<xs:restriction base="xs:integer">
+		<xs:minInclusive value="-2"></xs:minInclusive>
+		<xs:maxInclusive value="10"></xs:maxInclusive>
+</xs:restriction>
+</xs:simpleType>
+
+
+</xs:schema>
